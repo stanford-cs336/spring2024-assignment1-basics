@@ -1,0 +1,4 @@
+# These requirements are only for tests.
+pytest
+tiktoken
+psutil
