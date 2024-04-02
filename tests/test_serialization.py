@@ -57,7 +57,7 @@ def are_optimizers_equal(
     return True
 
 
-def test_checkpoint(tmp_path):
+def test_checkpointing(tmp_path):
     torch.manual_seed(42)
     d_input = 100
     d_output = 10
