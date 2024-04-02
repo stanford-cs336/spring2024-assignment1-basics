@@ -10,6 +10,19 @@ All changes we make to the assignment code or PDF will be documented in this fil
 
 ### Fixed
 
+## [0.1.3] - 2024-04-02
+
+### Added
+
+### Changed
+
+- handout: edit `adamWAccounting`, part (d) to define MFU and mention that the
+  backward pass is typically assumed to have twice the FLOPS of the forward pass.
+- handout: provide a hint about desired behavior when a user passes in input IDs
+  to `Tokenizer.decode` that correspond to invalid UTF-8 bytes.
+
+### Fixed
+
 ## [0.1.2] - 2024-04-02
 
 ### Added
@@ -41,7 +54,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 
 ### Fixed
 
-- code: fix an issue in the `train_bpe` tests where the expected and vocab did
+- code: fix an issue in the `train_bpe` tests where the expected merges and vocab did
   not properly reflect tiebreaking with the lexicographically greatest pair.
   - This occurred because our reference implementation (which checks against HF)
     follows the GPT-2 tokenizer in remapping bytes that aren't human-readable to
