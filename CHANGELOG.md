@@ -2,9 +2,19 @@
 
 All changes we make to the assignment code or PDF will be documented in this file.
 
-## [Unreleased] - yyyy-mm-dd
+## [Unreleased] - yyyy-mm-0dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [0.1.2] - 2024-04-02
+
+### Added
+
+- handout: added some more information about submitting to the leaderboard.
 
 ### Changed
 
