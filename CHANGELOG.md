@@ -14,6 +14,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 - code: remove dropout in model-related tests to improve determinism across
   platforms.
 - code: add `attn_pdrop` to `run_multihead_self_attention` adapter.
+- code: clarify `{q,k,v}_proj` dimension orders in the adapters.
 
 ### Fixed
 

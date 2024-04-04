@@ -169,13 +169,19 @@ def run_transformer_block(
             The keys of this dictionary are:
             - `attn.q_proj.weight`
                 The query projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_k),
+                so `attn.q_proj.weight == torch.cat([q_heads.0.weight, ..., q_heads.N.weight], dim=0)`.
             - `attn.k_proj.weight`
                 The key projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_k),
+                so `attn.k_proj.weight == torch.cat([k_heads.0.weight, ..., k_heads.N.weight], dim=0)`.
             - `attn.v_proj.weight`
                 The value projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_v),
+                so `attn.v_proj.weight == torch.cat([v_heads.0.weight, ..., v_heads.N.weight], dim=0)`.
             - `attn.output_proj.weight`
                 Weight of the multi-head self-attention output projection
                 Shape is ((d_model / num_heads) * num_heads, d_model).
@@ -250,13 +256,19 @@ def run_transformer_lm(
                 Positional embedding matrix. Shape is (context_length, d_model).
             - `layers.{num_layers}.attn.q_proj.weight`
                 The query projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_k),
+                so `attn.q_proj.weight == torch.cat([q_heads.0.weight, ..., q_heads.N.weight], dim=0)`.
             - `layers.{num_layers}.attn.k_proj.weight`
                 The key projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_k),
+                so `attn.k_proj.weight == torch.cat([k_heads.0.weight, ..., k_heads.N.weight], dim=0)`.
             - `layers.{num_layers}.attn.v_proj.weight`
                 The value projections for all `num_heads` attention heads.
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (num_heads * (d_model / num_heads), d_model).
+                The rows are ordered by matrices of shape (num_heads, d_v),
+                so `attn.v_proj.weight == torch.cat([v_heads.0.weight, ..., v_heads.N.weight], dim=0)`.
             - `layers.{num_layers}.attn.output_proj.weight`
                 Weight of the multi-head self-attention output projection
                 Shape is ((d_model / num_heads) * num_heads, d_model).
