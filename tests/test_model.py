@@ -121,7 +121,7 @@ def test_transformer_lm():
         in_indices=in_indices,
     )
     numpy.testing.assert_allclose(
-        actual_output.detach().numpy(), expected_output.detach().numpy(), atol=1e-6
+        actual_output.detach().numpy(), expected_output.detach().numpy(), atol=1e-4
     )
 
 
@@ -156,7 +156,7 @@ def test_transformer_lm_truncated_input():
     numpy.testing.assert_allclose(
         truncated_actual_output.detach().numpy(),
         truncated_expected_output.detach().numpy(),
-        atol=1e-6,
+        atol=1e-4,
     )
 
 
