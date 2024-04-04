@@ -13,6 +13,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 - code: reduce increase atol on end-to-end Transformer forward pass tests.
 - code: remove dropout in model-related tests to improve determinism across
   platforms.
+- code: add `attn_pdrop` to `run_multihead_self_attention` adapter.
 
 ### Fixed
 

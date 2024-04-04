@@ -91,6 +91,7 @@ def run_scaled_dot_product_attention(
 def run_multihead_self_attention(
     d_model: int,
     num_heads: int,
+    attn_pdrop: float,
     weights: dict[str, torch.FloatTensor],
     in_features: torch.FloatTensor,
 ) -> torch.FloatTensor:
@@ -105,6 +106,9 @@ def run_multihead_self_attention(
             Dimensionality of the feedforward input and output.
         num_heads: int
             Number of heads to use in multi-headed attention.
+        attn_pdrop: float
+            Drop-out the attention probabilities (the softmax-normalized
+            attention scores) with this rate.
         weights: dict[str, torch.FloatTensor]
             State dict of our reference implementation.
             The keys of this dictionary are:
@@ -154,11 +158,11 @@ def run_transformer_block(
             evenly divisible by `num_heads`.
         d_ff: int
             Dimensionality of the feed-forward inner layer (section 3.3).
-        attn_pdrop: Optional[float], default is None.
-            If given, drop-out the attention probabilities (the softmax-normalized
+        attn_pdrop: float
+            Drop-out the attention probabilities (the softmax-normalized
             attention scores) with this rate.
-        residual_pdrop: Optional[float], default is None.
-            If given, apply dropout to the output of each sub-layer, before it
+        residual_pdrop: float
+            Apply dropout to the output of each sub-layer, before it
             is added to the sub-layer input and normalized (section 5.4).
         weights: dict[str, torch.FloatTensor]
             State dict of our reference implementation.
@@ -229,11 +233,11 @@ def run_transformer_lm(
             evenly divisible by `num_heads`.
         d_ff: int
             Dimensionality of the feed-forward inner layer (section 3.3).
-        attn_pdrop: Optional[float], default is None.
-            If given, drop-out the attention probabilities (the softmax-normalized
+        attn_pdrop: float
+            Drop-out the attention probabilities (the softmax-normalized
             attention scores) with this rate.
-        residual_pdrop: Optional[float], default is None.
-            If given, apply dropout to the sum of the token and position embeddings
+        residual_pdrop: float
+            Apply dropout to the sum of the token and position embeddings
             as well as the output of each sub-layer, before it is added to the
             sub-layer input and normalized (section 5.4).
         weights: dict[str, torch.FloatTensor]

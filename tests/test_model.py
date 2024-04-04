@@ -83,9 +83,11 @@ def test_multihead_self_attention():
     )
     d_model = 64
     num_heads = 2
+    attn_pdrop = 0.0
     actual_output = run_multihead_self_attention(
         d_model=d_model,
         num_heads=num_heads,
+        attn_pdrop=attn_pdrop,
         weights=reference_weights,
         in_features=in_features,
     )
