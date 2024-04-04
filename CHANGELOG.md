@@ -11,6 +11,8 @@ All changes we make to the assignment code or PDF will be documented in this fil
 - code: skip `Tokenizer` memory-related tests on non-Linux systems, since
   support for RLIMIT_AS is inconsistent.
 - code: reduce increase atol on end-to-end Transformer forward pass tests.
+- code: remove dropout in model-related tests to improve determinism across
+  platforms.
 
 ### Fixed
 
