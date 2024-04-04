@@ -8,6 +8,9 @@ All changes we make to the assignment code or PDF will be documented in this fil
 
 ### Changed
 
+- code: skip `Tokenizer` memory-related tests on non-Linux systems, since
+  support for RLIMIT_AS is inconsistent.
+
 ### Fixed
 
 ## [0.1.3] - 2024-04-02
