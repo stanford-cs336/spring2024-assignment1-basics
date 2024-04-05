@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-import warnings
-
 import numpy
 import torch
 
@@ -59,22 +57,8 @@ def test_get_lr_cosine_schedule():
     warmup_iters = 7
     cosine_cycle_iters = 21
 
-    lr_zero_iter = run_get_lr_cosine_schedule(
-        it=0,
-        max_learning_rate=max_learning_rate,
-        min_learning_rate=min_learning_rate,
-        warmup_iters=warmup_iters,
-        cosine_cycle_iters=cosine_cycle_iters,
-    )
-    if lr_zero_iter <= 0:
-        warnings.warn(
-            "Your cosine LR schedule returns a LR of 0.0 for iter 0. "
-            "This is not strictly wrong, but make sure to pass in a non-zero iter "
-            "at the start of training (otherwise, the parameters will not be "
-            "updated in the first optimizer step.)"
-        )
-
     expected_lrs = [
+        0,
         0.14285714285714285,
         0.2857142857142857,
         0.42857142857142855,
@@ -108,6 +92,6 @@ def test_get_lr_cosine_schedule():
             warmup_iters=warmup_iters,
             cosine_cycle_iters=cosine_cycle_iters,
         )
-        for it in range(1, 25)
+        for it in range(25)
     ]
     numpy.testing.assert_allclose(numpy.array(actual_lrs), numpy.array(expected_lrs))

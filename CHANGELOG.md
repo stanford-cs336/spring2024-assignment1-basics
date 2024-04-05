@@ -16,6 +16,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 - code: add `attn_pdrop` to `run_multihead_self_attention` adapter.
 - code: clarify `{q,k,v}_proj` dimension orders in the adapters.
 - code: increase atol on cross-entropy tests
+- code: remove unnecessary warning in `test_get_lr_cosine_schedule`
 
 ### Fixed
 
