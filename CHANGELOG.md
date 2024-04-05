@@ -11,6 +11,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 ### Fixed
 
 - code: fix typo in `run_get_lr_cosine_schedule` return docstring.
+- code: fix typo in `test_tokenizer.py`
 
 ## [0.1.4] - 2024-04-04
 

@@ -364,8 +364,8 @@ def test_encode_iterable_tinystories_sample_roundtrip():
     )
     all_ids = []
     with open(FIXTURES_PATH / "tinystories_sample.txt") as f:
-        for ids in tokenizer.encode_iterable(f):
-            all_ids.append(ids)
+        for _id in tokenizer.encode_iterable(f):
+            all_ids.append(_id)
     with open(FIXTURES_PATH / "tinystories_sample.txt") as f:
         corpus_contents = f.read()
     assert tokenizer.decode(all_ids) == corpus_contents
