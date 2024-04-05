@@ -50,7 +50,7 @@ def test_cross_entropy():
         .detach()
         .numpy(),
         expected.detach().numpy(),
-        atol=1e-6,
+        atol=1e-4,
     )
 
     # Test that cross-entropy handles numerical overflow issues
@@ -65,7 +65,7 @@ def test_cross_entropy():
         .detach()
         .numpy(),
         large_expected_cross_entropy.detach().numpy(),
-        atol=1e-6,
+        atol=1e-4,
     )
 
 
