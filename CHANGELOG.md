@@ -5,20 +5,19 @@ All changes we make to the assignment code or PDF will be documented in this fil
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+### Changed 
+### Fixed
+
+## [0.1.4] - 2024-04-04
+
+### Added
 
 ### Changed
 
-- code: skip `Tokenizer` memory-related tests on non-Linux systems, since
-  support for RLIMIT_AS is inconsistent.
-- code: reduce increase atol on end-to-end Transformer forward pass tests.
-- code: remove dropout in model-related tests to improve determinism across
-  platforms.
-- code: add `attn_pdrop` to `run_multihead_self_attention` adapter.
-- code: clarify `{q,k,v}_proj` dimension orders in the adapters.
-- code: increase atol on cross-entropy tests
-- code: remove unnecessary warning in `test_get_lr_cosine_schedule`
-
 ### Fixed
+
+- handout: moved softmax problem to where softmax is first mentioned (Scaled Dot-Product Attention, Section 3.4.3)
+- handout: removed redundant initialization (t = 0) in AdamW pseudocode
 
 ## [0.1.3] - 2024-04-02
 
