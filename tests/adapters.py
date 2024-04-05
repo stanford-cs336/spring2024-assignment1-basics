@@ -461,7 +461,7 @@ def run_get_lr_cosine_schedule(
             T_c, the number of cosine annealing iterations.
 
     Returns:
-        Tensor of shape () with the average cross-entropy loss across examples.
+        Learning rate at the given iteration under the specified schedule.
     """
     raise NotImplementedError
 
