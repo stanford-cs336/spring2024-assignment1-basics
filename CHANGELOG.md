@@ -7,7 +7,10 @@ All changes we make to the assignment code or PDF will be documented in this fil
 ### Added
 
 ### Changed
+
 ### Fixed
+
+- code: fix typo in `run_get_lr_cosine_schedule` return docstring.
 
 ## [0.1.4] - 2024-04-04
 
