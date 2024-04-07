@@ -2,14 +2,19 @@
 
 All changes we make to the assignment code or PDF will be documented in this file.
 
-## [Unreleased] - yyyy-mm-dd
+## [0.1.5] - 2024-04-06
 
 ### Added
 
 ### Changed
 
+- handout: clarify example of preferring lexicographically greater merges to
+  specify that we want tuple comparison.
+
 ### Fixed
 
+- handout: fix expected number of training tokens for TinyStories, should be
+  327,680,000.
 - code: fix typo in `run_get_lr_cosine_schedule` return docstring.
 - code: fix typo in `test_tokenizer.py`
 
