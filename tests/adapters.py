@@ -287,7 +287,7 @@ def run_transformer_lm(
                 applied in the transformer block.
                 Shape is (d_model,).
             - `ln_final.weight`
-                Weights of affine transform for layernorm applied to the output of the final transformer block.
+                Weights of affine transform for RMSNorm applied to the output of the final transformer block.
                 Shape is (d_model, ).
             - `lm_head.weight`
                 Weights of the language model output embedding.
