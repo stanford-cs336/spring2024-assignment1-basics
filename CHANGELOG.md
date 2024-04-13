@@ -2,6 +2,30 @@
 
 All changes we make to the assignment code or PDF will be documented in this file.
 
+## [unreleased] - yyyy-mm-dd
+
+### Added
+
+### Changed
+
+### Fixed
+
+## [0.1.6] - 2024-04-13
+
+### Added
+
+### Changed
+
+### Fixed
+
+- handout: edit expected TinyStories run time to 30-40 minutes.
+- handout: add more details about how to use `np.memmap` or the `mmap_mode` flag
+  to `np.load`.
+- code: fix `get_tokenizer()` docstring.
+- handout: specify that problem `main_experiment` should use the same settings
+  as TinyStories.
+- code: replace mentions of layernorm with RMSNorm.
+
 ## [0.1.5] - 2024-04-06
 
 ### Added

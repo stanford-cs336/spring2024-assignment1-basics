@@ -518,7 +518,7 @@ def get_tokenizer(
     merges: list[tuple[bytes, bytes]],
     special_tokens: Optional[list[str]] = None,
 ):
-    """Given the path to a JSON vocab, a file with BPE merges, and a list of special tokens,
+    """Given a vocabulary, a list of merges, and a list of special tokens,
     return a BPE tokenizer that uses the provided vocab, merges, and special tokens.
 
     Args:
