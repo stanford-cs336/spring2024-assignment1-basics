@@ -314,7 +314,7 @@ def run_rmsnorm(
 
     Args:
         d_model: int
-            The dimensionality of the layernorm input.
+            The dimensionality of the RMSNorm input.
         eps: float, default is 1e-5
             A value added to the denominator for numerical stability.
         weights: dict[str, torch.FloatTensor]
@@ -329,7 +329,7 @@ def run_rmsnorm(
 
     Returns:
         FloatTensor of with the same shape as `in_features` with the output of running
-        layernorm of the `in_features`.
+        RMSNorm of the `in_features`.
     """
     raise NotImplementedError
 
