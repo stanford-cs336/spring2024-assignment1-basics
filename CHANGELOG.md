@@ -10,8 +10,10 @@ All changes we make to the assignment code or PDF will be documented in this fil
 
 ### Fixed
 
-- code: fix `test_get_batch` to handle "AssertionError: Torch not compiled with CUDA enabled". 
+- code: fix `test_get_batch` to handle "AssertionError: Torch not compiled with CUDA enabled".
+- handout: clarify that gradient clipping norm is calculated over all the parameters.
 - code: fix gradient clipping test comparing wrong tensors
+- code: test skipping parameters with no gradient and properly computing norm with multiple parameters
 
 ## [0.1.6] - 2024-04-13
 

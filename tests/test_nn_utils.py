@@ -70,22 +70,30 @@ def test_cross_entropy():
 
 
 def test_gradient_clipping():
-    t = torch.randn((5, 5))
+    tensors = [torch.randn((5, 5)) for _ in range(6)]
     max_norm = 1e-2
 
-    t1 = torch.nn.Parameter(torch.clone(t))
-    loss = (t1**2).sum()
+    t1 = tuple(torch.nn.Parameter(torch.clone(t)) for t in tensors)
+    # Test freezing one parameter.
+    t1[-1].requires_grad_(False)
+
+    loss = torch.cat(t1).sum()
     loss.backward()
+    torch.nn.utils.clip_grad.clip_grad_norm_(t1, max_norm)
+    t1_grads = [torch.clone(t.grad) for t in t1 if t.grad is not None]
 
-    print(torch.nn.utils.clip_grad.clip_grad_norm_([t1], max_norm))
-    t1_grad = torch.clone(t1.grad)
-
-    t1_c = torch.nn.Parameter(torch.clone(t))
-    loss_c = (t1_c**2).sum()
+    t1_c = tuple(torch.nn.Parameter(torch.clone(t)) for t in tensors)
+    t1_c[-1].requires_grad_(False)
+    loss_c = torch.cat(t1_c).sum()
     loss_c.backward()
-    run_gradient_clipping([t1_c], max_norm)
-    t1_c_grad = torch.clone(t1_c.grad)
+    run_gradient_clipping(t1_c, max_norm)
+    t1_c_grads = [torch.clone(t.grad) for t in t1_c if t.grad is not None]
 
-    numpy.testing.assert_allclose(
-        t1_grad.detach().numpy(), t1_c_grad.detach().numpy(), atol=1e-6
-    )
+    assert len(t1_grads) == len(t1_c_grads)
+
+    for t1_grad, t1_c_grad in zip(t1_grads, t1_c_grads):
+        numpy.testing.assert_allclose(
+            t1_grad.detach().numpy(),
+            t1_c_grad.detach().numpy(),
+            atol=1e-6,
+        )
