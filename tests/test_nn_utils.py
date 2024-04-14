@@ -84,7 +84,7 @@ def test_gradient_clipping():
     loss_c = (t1_c**2).sum()
     loss_c.backward()
     run_gradient_clipping([t1_c], max_norm)
-    t1_c_grad = torch.clone(t1.grad)
+    t1_c_grad = torch.clone(t1_c.grad)
 
     numpy.testing.assert_allclose(
         t1_grad.detach().numpy(), t1_c_grad.detach().numpy(), atol=1e-6

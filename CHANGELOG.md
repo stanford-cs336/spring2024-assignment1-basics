@@ -11,6 +11,7 @@ All changes we make to the assignment code or PDF will be documented in this fil
 ### Fixed
 
 - code: fix `test_get_batch` to handle "AssertionError: Torch not compiled with CUDA enabled". 
+- code: fix gradient clipping test comparing wrong tensors
 
 ## [0.1.6] - 2024-04-13
 
