@@ -184,7 +184,7 @@ def run_transformer_block(
                 so `attn.v_proj.weight == torch.cat([v_heads.0.weight, ..., v_heads.N.weight], dim=0)`.
             - `attn.output_proj.weight`
                 Weight of the multi-head self-attention output projection
-                Shape is ((d_model / num_heads) * num_heads, d_model).
+                Shape is (d_model, (d_model / num_heads) * num_heads).
             - `ln1.weight`
                 Weights of affine transform for the first RMSNorm
                 applied in the transformer block.
